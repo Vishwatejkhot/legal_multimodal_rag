@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/Claude-Sonnet%204.6-blueviolet?style=flat-square&logo=anthropic&logoColor=white"/>
   <img src="https://img.shields.io/badge/Streamlit-1.56-red?style=flat-square&logo=streamlit&logoColor=white"/>
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square"/>
+  <img src="https://img.shields.io/badge/Docker-ready-2496ED?style=flat-square&logo=docker&logoColor=white"/>
 </p>
 
 <p align="center">
@@ -202,6 +203,46 @@ Results include:
 | Embeddings | Free (local model) |
 | All legal data | Free |
 | All libraries | Free |
+
+---
+
+## Docker
+
+The easiest way to run JusticeAI in any environment.
+
+### Quick start
+
+```bash
+# 1. Add your API key
+cp .env.example .env
+# Edit .env: ANTHROPIC_API_KEY=sk-ant-...
+
+# 2. Build and start
+docker compose up --build
+
+# 3. Open http://localhost:8501
+```
+
+### First run inside Docker
+
+After the container starts, fetch data and build indexes:
+
+```bash
+docker compose exec justiceai python scripts/fetch_data.py
+docker compose exec justiceai python scripts/fetch_training.py
+docker compose exec justiceai python scripts/build_index.py
+```
+
+Data, indexes, and model weights are persisted in Docker volumes — rebuilding the image does not lose them.
+
+### Commands
+
+```bash
+docker compose up -d          # Run in background
+docker compose logs -f        # Stream logs
+docker compose down           # Stop
+docker compose down -v        # Stop and delete volumes
+```
 
 ---
 
