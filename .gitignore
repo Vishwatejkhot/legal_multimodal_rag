@@ -1,0 +1,46 @@
+# Environment
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Indexes (large binary files - rebuild with build_index.py)
+indexes/faiss.index
+indexes/faiss_meta.json
+indexes/bm25.pkl
+indexes/lancedb/
+indexes/xgboost_evidence.json
+indexes/seen_hashes.json
+
+# Cache
+.cache/
+
+# Data (fetched by scripts - not committed)
+data/legal_text/legislation/
+data/legal_text/case_law/
+data/legal_text/sentencing/
+data/legal_text/hmcts/
+data/images/funsd/
+data/images/docvqa/
+data/training/synthetic/
+data/training/xgboost_cases/
+data/test_documents/
+
+# HuggingFace model cache
+*.safetensors
+*.bin
+*.onnx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Streamlit
+test_app.py
+test_imports.py
